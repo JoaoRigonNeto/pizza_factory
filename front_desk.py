@@ -1,17 +1,14 @@
 from kitchen.oven import Oven
 
 
-print("WELCOME TO BIBIS PIZZARIA")
+first_pizza = Oven.cook_pizza("Peperoni")
+print(first_pizza.ingredients)
 
-bibi_special_pizza = Oven.cook_pizza(flavour = "Margherita")
-print(bibi_special_pizza)
-bibi_special_pizza.remove_ingredient("ToMaTo")
-bibi_special_pizza.remove_ingredient("ToMaTo")
 
-bibi_special_pizza.add_ingredient("bibi`s special sauce")
-bibi_special_pizza.add_ingredient("bibi`s special sauce")
-bibi_special_pizza.add_ingredient("bibi`s special sauce")
-bibi_special_pizza.add_ingredient("bibi`s special sauce")
-bibi_special_pizza.add_ingredient("bibi`s special sauce")
+first_pizza.remove_ingredient("Tomato juice")
+print(first_pizza.ingredients)
 
-print(bibi_special_pizza.basic_ingredients)
+
+
+first_pizza.remove_ingredient("tomato saucE")
+print(first_pizza.ingredients)

@@ -4,8 +4,9 @@ from datetime import datetime
 class Pizza(ABC):
 
     def __init__(self):
-        self.cooked = True
         self.freshout_timestamp = datetime.now().timestamp()
+        self.basic_ingredients = ["dough"]
+        self.ingredients = []
 
     @abstractmethod
     def is_delicious(self):
@@ -13,8 +14,4 @@ class Pizza(ABC):
 
     @abstractmethod
     def remove_ingredient(self, ingredient: str):
-        pass
-
-    @abstractmethod
-    def add_ingredient(self, ingredient: str):
         pass
