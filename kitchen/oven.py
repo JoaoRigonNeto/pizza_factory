@@ -4,15 +4,19 @@ from kitchen.mozzarella import Mozzarella
 from kitchen.napolitana import Napolitana
 from kitchen.peperoni import Peperoni
 
-menu = {
-        "margherita": Margherita,
-        "mozzarella": Mozzarella,
-        "napolitana": Napolitana,
-        "peperoni": Peperoni
-    }
 
 class Oven:
 
-    @staticmethod
-    def cook_pizza(flavour: str, ingredients: list) -> Pizza:
-        return menu.get(flavour.lower(), None)(ingredients)
+    menu = {
+            "margherita": Margherita,
+            "mozzarella": Mozzarella,
+            "napolitana": Napolitana,
+            "peperoni": Peperoni
+        }
+
+    @classmethod
+    def cook_pizza(cls, flavour: str) -> Pizza:
+        if flavour.lower() in cls.menu:
+            return(cls.menu.get(flavour.lower())())
+        else:
+            raise ValueError(f"{flavour} not an available flavour")
